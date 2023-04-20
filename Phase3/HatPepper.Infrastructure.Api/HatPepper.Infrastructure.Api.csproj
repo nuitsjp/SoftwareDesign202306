@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http" Version="4.3.4" PrivateAssets="all" />
+    <PackageReference Include="System.Net.Http.Json" Version="7.0.1" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HatPepper.UseCase\HatPepper.UseCase.csproj" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="if not exist &quot;$(ProjectDir)Secret.cs&quot; copy &quot;$(ProjectDir)Secret.cs_template&quot; &quot;$(ProjectDir)Secret.cs&quot;&#xD;&#xA;" />
+  </Target>
+
+</Project>
