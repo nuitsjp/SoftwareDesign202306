@@ -23,12 +23,10 @@ public class GourmetSearchApi : IGourmetSearchApi
         GeoCoordinate location,
         bool lunchOnly)
     {
-        var url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?" +
-                  $"&key={Secret.Value}" +
+        var url = "https://nuitsjp.github.io/SoftwareDesign202306/restaurants.json?" +
                   $"&lat={location.Latitude}" +
                   $"&lng={location.Longitude}" +
-                  $"{(lunchOnly ? "&lunch=1" : string.Empty)}" +
-                  "&format=json";
+                  $"{(lunchOnly ? "&lunch=1" : string.Empty)}";
         return (await HttpClient.GetFromJsonAsync<Root>(url))!;
     }
 }

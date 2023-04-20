@@ -27,8 +27,4 @@
     <Reference Include="System.Device" />
   </ItemGroup>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="if not exist &quot;$(ProjectDir)Infrastructure\Api\Secret.cs&quot; copy &quot;$(ProjectDir)Infrastructure\Api\Secret.cs_template&quot; &quot;$(ProjectDir)Infrastructure\Api\Secret.cs&quot;&#xD;&#xA;" />
-  </Target>
-
 </Project>

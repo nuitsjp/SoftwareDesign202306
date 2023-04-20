@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 namespace HatPepper.Infrastructure.Api;
 
 /// <summary>
-/// Hot Pepper Gourmet Search API
+/// グルメ検索API
 /// </summary>
 public class GourmetSearchApi : IGourmetSearchApi
 {
@@ -20,15 +20,13 @@ public class GourmetSearchApi : IGourmetSearchApi
     /// <param name="lunchOnly">ランチに限定する</param>
     /// <returns></returns>
     public async Task<IEnumerable<Restaurant>> FindRestaurantsAsync(
-        Location location, 
+        Location location,
         bool lunchOnly)
     {
-        var url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?" +
-                  $"&key={Secret.Value}" +
+        var url = "https://nuitsjp.github.io/SoftwareDesign202306/restaurants.json?" +
                   $"&lat={location.Latitude}" +
                   $"&lng={location.Longitude}" +
-                  $"{(lunchOnly ? "&lunch=1" : string.Empty)}" +
-                  "&format=json";
+                  $"{(lunchOnly ? "&lunch=1" : string.Empty)}";
         return (await HttpClient.GetFromJsonAsync<Root>(url))!
             .Results
             .Shops

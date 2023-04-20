@@ -16,8 +16,4 @@
     <ProjectReference Include="..\HatPepper.UseCase\HatPepper.UseCase.csproj" />
   </ItemGroup>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="if not exist &quot;$(ProjectDir)Secret.cs&quot; copy &quot;$(ProjectDir)Secret.cs_template&quot; &quot;$(ProjectDir)Secret.cs&quot;&#xD;&#xA;" />
-  </Target>
-
 </Project>

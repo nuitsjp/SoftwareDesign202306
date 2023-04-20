@@ -1,11 +1,11 @@
 ﻿using System.Device.Location;
+using HatPepper.UseCase;
 using System.Net.Http.Json;
-using System.Text.Json;
 
 namespace HatPepper.Infrastructure.Api;
 
 /// <summary>
-/// Hot Pepper Gourmet Search API
+/// グルメ検索API
 /// </summary>
 public class GourmetSearchApi
 {
@@ -24,34 +24,10 @@ public class GourmetSearchApi
         GeoCoordinate location,
         bool lunchOnly)
     {
-        var url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?" +
-                  $"&key={Secret.Value}" +
-                  $"&lat={35.681236}" +
-                  $"&lng={139.767125}" +
-                  $"{(lunchOnly ? "&lunch=1" : string.Empty)}" +
-                  "&format=json";
-        var result = (await HttpClient.GetFromJsonAsync<Root>(url))!;
-        // jsonでファイルに保存する
-        var options = new JsonSerializerOptions
-        {
-            Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-            WriteIndented = true
-        };
-        var json = JsonSerializer.Serialize(result, options);
-        File.WriteAllText("restaurants.json", json);
-
-        return result;
+        var url = "https://nuitsjp.github.io/SoftwareDesign202306/restaurants.json?" +
+                  $"&lat={location.Latitude}" +
+                  $"&lng={location.Longitude}" +
+                  $"{(lunchOnly ? "&lunch=1" : string.Empty)}";
+        return (await HttpClient.GetFromJsonAsync<Root>(url))!;
     }
-}
-
-
-public class Rootobject
-{
-    public Class1[] Property1 { get; set; }
-}
-
-public class Class1
-{
-    public string Name { get; set; }
-    public string Genre { get; set; }
 }
