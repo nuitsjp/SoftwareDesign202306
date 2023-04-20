@@ -9,7 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Location\" />
+    <None Remove="Infrastructure\Location\Secret.cs_template" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Infrastructure\Time\" />
     <Folder Include="Presentation\" />
     <Folder Include="UseCase\" />
@@ -25,10 +28,8 @@
     <Reference Include="System.Device" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Secret.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="if not exist &quot;$(ProjectDir)Infrastructure\Api\Secret.cs&quot; copy &quot;$(ProjectDir)Infrastructure\Api\Secret.cs_template&quot; &quot;$(ProjectDir)Infrastructure\Api\Secret.cs&quot;&#xD;&#xA;" />
+  </Target>
 
 </Project>

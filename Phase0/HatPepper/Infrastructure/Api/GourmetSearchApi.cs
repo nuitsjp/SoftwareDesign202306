@@ -14,11 +14,6 @@ public class GourmetSearchApi
     private static readonly HttpClient HttpClient = new();
 
     /// <summary>
-    /// APIのシークレットキー
-    /// </summary>
-    private static readonly string Secret = File.ReadAllText("Secret.txt");
-
-    /// <summary>
     /// レストランを検索する。
     /// </summary>
     /// <param name="location">位置情報</param>
@@ -28,8 +23,8 @@ public class GourmetSearchApi
         GeoCoordinate location,
         bool lunchOnly)
     {
-        var url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/" +
-                  $"?key={Secret}" +
+        var url = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?" +
+                  $"&key={Secret.Value}" +
                   $"&lat={location.Latitude}" +
                   $"&lng={location.Longitude}" +
                   $"{(lunchOnly ? "&lunch=1" : string.Empty)}" +
