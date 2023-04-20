@@ -29,7 +29,6 @@ public class GourmetSearchApi : IGourmetSearchApi
                   $"&lng={location.Longitude}" +
                   $"{(lunchOnly ? "&lunch=1" : string.Empty)}";
         return (await HttpClient.GetFromJsonAsync<Root>(url))!
-            .Results
             .Shops
             .Select(x => new Restaurant(x.Name, x.Genre.Name));
     }

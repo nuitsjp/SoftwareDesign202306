@@ -53,7 +53,7 @@ public class FindNearbyRestaurants : IFindNearbyRestaurants
 
         // レストランを検索する。
         var result = await _api.FindRestaurantsAsync(location, lunchOnly);
-        return result.Results.Shops
+        return result.Shops
             .Select(x => new Restaurant(x.Name, x.Genre.Name));
     }
 }

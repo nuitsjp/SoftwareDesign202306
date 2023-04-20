@@ -3,5 +3,5 @@
 /// <summary>
 /// グルメ検索結果
 /// </summary>
-/// <param name="Results">検索結果</param>
-public record Root(Results Results);
+/// <param name="Shops">店舗</param>
+public record Root(IReadOnlyList<Shop> Shops);
