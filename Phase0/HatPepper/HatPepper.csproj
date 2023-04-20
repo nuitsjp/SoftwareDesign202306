@@ -9,13 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Infrastructure\Location\Secret.cs_template" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Infrastructure\Time\" />
     <Folder Include="Presentation\" />
-    <Folder Include="UseCase\" />
   </ItemGroup>
 
   <ItemGroup>

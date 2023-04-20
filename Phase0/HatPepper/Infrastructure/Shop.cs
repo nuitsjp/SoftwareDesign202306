@@ -1,4 +1,4 @@
-﻿namespace HatPepper.Infrastructure.Api;
+﻿namespace HatPepper.Infrastructure;
 
 /// <summary>
 /// 店舗
@@ -11,10 +11,10 @@
 /// <param name="Menu">メニュー</param>
 /// <param name="Genre">ジャンル</param>
 public record Shop(
-    string Name, 
-    string Address, 
-    string Phone, 
-    string Budget, 
-    float Rating, 
-    Menu[] Menu, 
+    string Name,
+    string Address,
+    string Phone,
+    string Budget,
+    float Rating,
+    Menu[] Menu,
     Genre Genre);

@@ -1,8 +1,7 @@
 ﻿using System.Device.Location;
-using HatPepper.UseCase;
 using System.Net.Http.Json;
 
-namespace HatPepper.Infrastructure.Api;
+namespace HatPepper.Infrastructure;
 
 /// <summary>
 /// グルメ検索API
@@ -20,7 +19,7 @@ public class GourmetSearchApi
     /// <param name="location">位置情報</param>
     /// <param name="lunchOnly">ランチに限定する</param>
     /// <returns></returns>
-    public async Task<Root> FindRestaurantsAsync(
+    public async Task<GourmetSearchResults> FindRestaurantsAsync(
         GeoCoordinate location,
         bool lunchOnly)
     {
@@ -28,6 +27,6 @@ public class GourmetSearchApi
                   $"&lat={location.Latitude}" +
                   $"&lng={location.Longitude}" +
                   $"{(lunchOnly ? "&lunch=1" : string.Empty)}";
-        return (await HttpClient.GetFromJsonAsync<Root>(url))!;
+        return (await HttpClient.GetFromJsonAsync<GourmetSearchResults>(url))!;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace HatPepper.Infrastructure.Api;
+﻿namespace HatPepper.Infrastructure;
 
 /// <summary>
 /// ジャンル

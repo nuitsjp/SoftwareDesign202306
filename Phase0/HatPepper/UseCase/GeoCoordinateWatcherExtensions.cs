@@ -1,6 +1,6 @@
 ﻿using System.Device.Location;
 
-namespace HatPepper.Infrastructure.Location;
+namespace HatPepper.UseCase;
 
 /// <summary>
 /// GeoCoordinateWatcherの拡張メソッド
@@ -11,10 +11,9 @@ public static class GeoCoordinateWatcherExtensions
     /// 現在位置を取得する。
     /// </summary>
     /// <param name="watcher"></param>
-    /// <param name="timeout"></param>
     /// <returns></returns>
     /// <exception cref="InvalidOperationException"></exception>
-    public static GeoCoordinate GetCurrentLocation(this GeoCoordinateWatcher watcher, TimeSpan timeout)
+    public static GeoCoordinate GetCurrentLocation(this GeoCoordinateWatcher watcher)
     {
         GeoCoordinate result = GeoCoordinate.Unknown;
         // PositionChangedイベントを監視し、イベント発生時に待機中のスレッドを再開する
@@ -43,7 +42,7 @@ public static class GeoCoordinateWatcherExtensions
             // GeoCoordinateWatcherを起動し、PositionChangedイベントが発生するか
             // タイムアウトまで待機する
             watcher.Start();
-            Monitor.Wait(watcher, timeout);
+            Monitor.Wait(watcher, TimeSpan.FromSeconds(10));
         }
         finally
         {
