@@ -12,15 +12,15 @@ public class FindNearbyRestaurants : IFindNearbyRestaurants
     /// <summary>
     /// 位置情報プロバイダー
     /// </summary>
-    private readonly LocationProvider _locationProvider;
+    private readonly ILocationProvider _locationProvider;
     /// <summary>
     /// タイムプロバイダー
     /// </summary>
-    private readonly TimeProvider _timeProvider;
+    private readonly ITimeProvider _timeProvider;
     /// <summary>
     /// グルメ検索API
     /// </summary>
-    private readonly GourmetSearchApi _api;
+    private readonly IGourmetSearchApi _api;
 
     /// <summary>
     /// インスタンスを生成する。
@@ -29,9 +29,9 @@ public class FindNearbyRestaurants : IFindNearbyRestaurants
     /// <param name="timeProvider">時刻プロバイダー</param>
     /// <param name="api">グルメサービスAPI</param>
     public FindNearbyRestaurants(
-        LocationProvider locationProvider, 
-        TimeProvider timeProvider, 
-        GourmetSearchApi api)
+        ILocationProvider locationProvider, 
+        ITimeProvider timeProvider, 
+        IGourmetSearchApi api)
     {
         _locationProvider = locationProvider;
         _timeProvider = timeProvider;

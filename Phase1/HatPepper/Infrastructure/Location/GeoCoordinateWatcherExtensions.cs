@@ -18,7 +18,7 @@ public static class GeoCoordinateWatcherExtensions
     {
         GeoCoordinate result = GeoCoordinate.Unknown;
         // PositionChangedイベントを監視し、イベント発生時に待機中のスレッドを再開する
-        watcher.PositionChanged += (sender, eventArgs) =>
+        watcher.PositionChanged += (_, eventArgs) =>
         {
             if (eventArgs.Position.Location.IsUnknown)
             {

@@ -48,8 +48,6 @@ public class FindNearbyRestaurants : IFindNearbyRestaurants
         var lunchOnly = now.Hour.Between(11, 14);
 
         // レストランを検索する。
-        var result = await _api.FindRestaurantsAsync(location, lunchOnly);
-        return result.Results.Shops
-            .Select(x => new Restaurant(x.Name, x.Genre.Name));
+        return await _api.FindRestaurantsAsync(location, lunchOnly);
     }
 }

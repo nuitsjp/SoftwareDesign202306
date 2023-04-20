@@ -1,5 +1,4 @@
 ﻿using FluentTextTable;
-using HatPepper.Infrastructure.Api;
 using HatPepper.UseCase;
 
 namespace HatPepper.Presentation;

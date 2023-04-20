@@ -4,15 +4,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net48</TargetFramework>
     <LangVersion>latest</LangVersion>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="FluentTextTable" Version="1.0.0" />
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
-    <PackageReference Include="System.Net.Http.Json" Version="7.0.1" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\HatPepper.Infrastructure.Api\HatPepper.Infrastructure.Api.csproj" />
