@@ -26,7 +26,7 @@ public class NearbyRestaurantsConsole
     /// 近隣のレストランを表示する。
     /// </summary>
     /// <returns></returns>
-    public async Task FindRestaurantsAsync()
+    public async Task ShowRestaurantsAsync()
     {
         // レストランを検索する。
         var restaurants = 

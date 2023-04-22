@@ -23,10 +23,10 @@ public class GourmetSearchApi
         GeoCoordinate location,
         bool lunchOnly)
     {
-        var url = "https://nuitsjp.github.io/SoftwareDesign202306/restaurants.json?" +
+        var uri = "https://nuitsjp.github.io/SoftwareDesign202306/restaurants.json?" +
                   $"&lat={location.Latitude}" +
                   $"&lng={location.Longitude}" +
                   $"{(lunchOnly ? "&lunch=1" : string.Empty)}";
-        return (await HttpClient.GetFromJsonAsync<GourmetSearchResults>(url))!;
+        return (await HttpClient.GetFromJsonAsync<GourmetSearchResults>(uri))!;
     }
 }

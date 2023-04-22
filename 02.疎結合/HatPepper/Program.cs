@@ -5,10 +5,10 @@ using HatPepper.Presentation;
 using HatPepper.UseCase;
 
 // レストランを検索して表示する。
-NearbyRestaurantsConsole console = 
-    new(
+var console = 
+    new NearbyRestaurantsConsole(
         new FindNearbyRestaurants(
             new LocationProvider(),
             new TimeProvider(),
             new GourmetSearchApi()));
-await console.FindRestaurantsAsync();
+await console.ShowRestaurantsAsync();

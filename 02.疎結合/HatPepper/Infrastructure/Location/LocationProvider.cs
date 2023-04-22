@@ -11,7 +11,7 @@ public class LocationProvider : ILocationProvider
     /// 現在地を取得する。
     /// </summary>
     /// <returns></returns>
-    public GeoCoordinate GetCurrentLocation() =>
+    public GeoCoordinate Current =>
         new GeoCoordinateWatcher()
             .GetCurrentLocation(TimeSpan.FromSeconds(10));
 }

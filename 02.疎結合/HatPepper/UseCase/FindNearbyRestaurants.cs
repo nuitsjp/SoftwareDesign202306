@@ -45,10 +45,10 @@ public class FindNearbyRestaurants : IFindNearbyRestaurants
     public async Task<IEnumerable<Restaurant>> FindRestaurantsAsync()
     {
         // 現在地を取得する
-        var location = _locationProvider.GetCurrentLocation();
+        var location = _locationProvider.Current;
 
         // ランチタイムかどうか判定する
-        var now = _timeProvider.GetNow();
+        var now = _timeProvider.Now;
         var lunchOnly = now.Hour.Between(11, 14);
 
         // レストランを検索する。

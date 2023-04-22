@@ -10,5 +10,5 @@ public interface IGourmetSearchApi
     /// <param name="location">位置情報</param>
     /// <param name="lunchOnly">ランチに限定する</param>
     /// <returns></returns>
-    Task<Root> FindRestaurantsAsync(GeoCoordinate location, bool lunchOnly);
+    Task<GourmetSearchResults> FindRestaurantsAsync(GeoCoordinate location, bool lunchOnly);
 }
