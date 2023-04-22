@@ -19,9 +19,7 @@ public class GourmetSearchApi
     /// <param name="location">位置情報</param>
     /// <param name="lunchOnly">ランチに限定する</param>
     /// <returns></returns>
-    public async Task<GourmetSearchResults> FindRestaurantsAsync(
-        GeoCoordinate location,
-        bool lunchOnly)
+    public async Task<GourmetSearchResults> FindRestaurantsAsync(GeoCoordinate location, bool lunchOnly)
     {
         var uri = "https://nuitsjp.github.io/SoftwareDesign202306/restaurants.json?" +
                   $"&lat={location.Latitude}" +

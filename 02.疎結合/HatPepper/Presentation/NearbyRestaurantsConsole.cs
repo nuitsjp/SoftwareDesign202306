@@ -29,8 +29,7 @@ public class NearbyRestaurantsConsole
     public async Task ShowRestaurantsAsync()
     {
         // レストランを検索する。
-        var restaurants = 
-            await _findNearbyRestaurants.FindRestaurantsAsync();
+        var restaurants = await _findNearbyRestaurants.FindRestaurantsAsync();
 
         // レストランを表示する。
         Build.TextTable<Restaurant>(builder =>

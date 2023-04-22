@@ -1,5 +1,5 @@
 ﻿using HatPepper.Presentation;
 
 // レストランを検索して表示する。
-NearbyRestaurantsConsole console = new();
+var console = new NearbyRestaurantsConsole();
 await console.ShowRestaurantsAsync();
