@@ -1,6 +1,7 @@
 ﻿using HatPepper.Infrastructure.Api;
 using HatPepper.Infrastructure.Location;
 using HatPepper.Infrastructure.Time;
+// ReSharper disable MergeIntoPattern
 
 namespace HatPepper.UseCase;
 
@@ -49,7 +50,7 @@ public class FindNearbyRestaurants : IFindNearbyRestaurants
 
         // ランチタイムかどうか判定する
         var now = _timeProvider.Now;
-        var lunchOnly = now.Hour.Between(11, 14);
+        var lunchOnly = 11 <= now.Hour && now.Hour <= 14;
 
         // レストランを検索する。
         var result = await _api.FindRestaurantsAsync(location, lunchOnly);
