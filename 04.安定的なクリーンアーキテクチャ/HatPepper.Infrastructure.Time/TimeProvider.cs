@@ -12,8 +12,5 @@ public class TimeProvider : ITimeProvider
     /// 現在時刻を取得する。
     /// </summary>
     /// <returns></returns>
-    public DateTime GetNow()
-    {
-        return DateTime.Now;
-    }
+    public DateTime Now => DateTime.Now;
 }

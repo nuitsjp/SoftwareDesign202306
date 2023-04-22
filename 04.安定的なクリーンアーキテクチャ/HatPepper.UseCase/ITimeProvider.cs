@@ -11,5 +11,5 @@ public interface ITimeProvider
     /// 現在時刻を取得する。
     /// </summary>
     /// <returns></returns>
-    DateTime GetNow();
+    DateTime Now { get; }
 }

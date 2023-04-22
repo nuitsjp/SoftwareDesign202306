@@ -9,5 +9,5 @@ public interface ILocationProvider
     /// 現在地を取得する。
     /// </summary>
     /// <returns></returns>
-    Location GetCurrentLocation();
+    Location Current { get; }
 }
