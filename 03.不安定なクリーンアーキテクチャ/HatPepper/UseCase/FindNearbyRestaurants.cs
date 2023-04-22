@@ -1,4 +1,5 @@
-﻿namespace HatPepper.UseCase;
+﻿// ReSharper disable MergeIntoPattern
+namespace HatPepper.UseCase;
 
 /// <summary>
 /// ユースケース：近隣のレストランを閲覧する。
@@ -45,7 +46,7 @@ public class FindNearbyRestaurants : IFindNearbyRestaurants
 
         // ランチタイムかどうか判定する
         var now = _timeProvider.GetNow();
-        var lunchOnly = now.Hour.Between(11, 14);
+        var lunchOnly = 11 <= now.Hour && now.Hour <= 14;
 
         // レストランを検索する。
         return await _api.FindRestaurantsAsync(location, lunchOnly);
