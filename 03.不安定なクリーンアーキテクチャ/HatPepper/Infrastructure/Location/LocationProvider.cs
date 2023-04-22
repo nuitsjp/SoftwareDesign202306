@@ -12,7 +12,13 @@ public class LocationProvider : ILocationProvider
     /// 現在地を取得する。
     /// </summary>
     /// <returns></returns>
-    public GeoCoordinate GetCurrentLocation() =>
-        new GeoCoordinateWatcher()
-            .GetCurrentLocation(TimeSpan.FromSeconds(10));
+    public UseCase.Location Current
+    {
+        get
+        {
+            var location = new GeoCoordinateWatcher()
+                .GetCurrentLocation(TimeSpan.FromSeconds(10));
+            return new UseCase.Location(location.Latitude, location.Longitude);
+        }
+    }
 }

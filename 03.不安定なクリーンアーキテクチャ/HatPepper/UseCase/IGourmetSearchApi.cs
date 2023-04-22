@@ -1,6 +1,4 @@
-﻿using System.Device.Location;
-
-namespace HatPepper.UseCase;
+﻿namespace HatPepper.UseCase;
 
 public interface IGourmetSearchApi
 {
@@ -10,5 +8,5 @@ public interface IGourmetSearchApi
     /// <param name="location">位置情報</param>
     /// <param name="lunchOnly">ランチに限定する</param>
     /// <returns></returns>
-    Task<IEnumerable<Restaurant>> FindRestaurantsAsync(GeoCoordinate location, bool lunchOnly);
+    Task<IEnumerable<Restaurant>> FindRestaurantsAsync(Location location, bool lunchOnly);
 }

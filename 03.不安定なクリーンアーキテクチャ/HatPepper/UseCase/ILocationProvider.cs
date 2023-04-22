@@ -1,6 +1,4 @@
-﻿using System.Device.Location;
-
-namespace HatPepper.UseCase;
+﻿namespace HatPepper.UseCase;
 
 /// <summary>
 /// 位置情報プロバイダー
@@ -11,5 +9,5 @@ public interface ILocationProvider
     /// 現在地を取得する。
     /// </summary>
     /// <returns></returns>
-    GeoCoordinate GetCurrentLocation();
+    Location Current { get; }
 }

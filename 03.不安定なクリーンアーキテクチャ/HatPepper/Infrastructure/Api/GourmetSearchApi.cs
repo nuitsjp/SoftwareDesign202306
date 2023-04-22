@@ -1,5 +1,4 @@
 ﻿using HatPepper.UseCase;
-using System.Device.Location;
 using System.Net.Http.Json;
 
 namespace HatPepper.Infrastructure.Api;
@@ -21,7 +20,7 @@ public class GourmetSearchApi : IGourmetSearchApi
     /// <param name="lunchOnly">ランチに限定する</param>
     /// <returns></returns>
     public async Task<IEnumerable<Restaurant>> FindRestaurantsAsync(
-        GeoCoordinate location, 
+        UseCase.Location location, 
         bool lunchOnly)
     {
         var url = "https://nuitsjp.github.io/SoftwareDesign202306/restaurants.json?" +
